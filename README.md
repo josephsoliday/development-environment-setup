@@ -66,7 +66,12 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 ### Maven
 
 1. Install [Maven for Windows](http://maven.apache.org/download.cgi)
-2. Install [Maven for Ubuntu](https://tecadmin.net/install-apache-maven-ubuntu-20-04/#:~:text=%20How%20to%20Install%20Apache%20Maven%20on%20Ubuntu,You%20have%20successfully%20installed%20and%20configured...%20More%20)
+2. Install [Maven for Ubuntu](https://tecadmin.net/install-apache-maven-ubuntu-20-04/)
+
+### Gradle
+
+1. Install [Gradle for Windows](https://gradle.org/install/)
+2. Install [Gradle for Ubuntu](https://tecadmin.net/install-gradle-ubuntu-20-04/)
 
 ### Kubernetes
 
