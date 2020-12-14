@@ -77,6 +77,29 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
+### Spark
+
+1. Download Apache Spark and move it to `/usr/local/spark`:
+    ``` bash
+    wget https://apache.mirror.digionline.de/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
+    tar xvf spark-3.0.1-bin-hadoop3.2.tgz
+    sudo mv spark-3.0.1-bin-hadoop3.2 /usr/local/spark
+    ```
+2. Edit `~/.bashrc` using `vi` and add the following lines at the end of the file:
+    ``` bash
+    export SPARK_HOME=/usr/local/spark
+    export HADOOP_HOME=/usr/local/spark
+    export PATH=$PATH:/usr/local/spark/bin
+    ```
+3. Activate changes:
+    ``` bash
+    source ~/.bashrc
+    ```
+4. Install pyspark:
+    ``` bash
+    pip install pyspark
+    ```
+
 ### Extensions
   
 1. Install the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension in VS Code
