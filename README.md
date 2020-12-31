@@ -28,8 +28,8 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
     wsl --set-version Ubuntu 2
     ```
-5. Open Docker desktop, click on Resources->WSL INTEGRATION and enable Ubuntu
-6. Remove DOCKER_HOST entry from .bashrc
+5. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
+6. Remove the **export DOCKER_HOST** entry from .bashrc
 7. Upgrade docker on Ubuntu:
     ```
     sudo apt install docker.io
@@ -49,7 +49,7 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
     sudo dpkg -i /var/cache/apt/archives/*.deb
     ```
-5. Configure the docker daemon to connect to Docker:
+5. Configure the docker daemon to connect to Docker (not needed for WSL 2):
     ```
     echo "export DOCKER_HOST='tcp://0.0.0.0:2375'" >> ~/.bashrc
     source ~/.bashrc
