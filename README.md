@@ -13,7 +13,27 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 ### WSL
   
 1. Install the Ubuntu app in the Microsoft Store
-2. Use "Turn Windows features on or off" and select "Windows Subsystem for Linux", click OK, reboot, and use Ubuntu 
+2. Use "Turn Windows features on or off" and select "Windows Subsystem for Linux", click OK, reboot, and use Ubuntu
+
+
+#### Upgrade to WSL 2
+
+1. Install the [WSL 2 update](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+2. Open Windows PowerShell
+3. Set default version:
+    ```
+    wsl --set-default-version 2
+    ```
+4. Upgrade Ubuntu distribution to WSL 2:
+    ```
+    wsl --set-version Ubuntu 2
+    ```
+5. Open Docker desktop, click on Resources->WSL INTEGRATION and enable Ubuntu
+6. Remove DOCKER_HOST entry from .bashrc
+7. Upgrade docker on Ubuntu:
+    ```
+    sudo apt install docker.io
+    ```
   
 ### Docker
   
