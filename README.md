@@ -101,15 +101,16 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 
 1. Download Apache Spark and move it to `/usr/local/spark`:
     ``` bash
-    wget https://apache.mirror.digionline.de/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
-    tar xvf spark-3.0.1-bin-hadoop3.2.tgz
-    sudo mv spark-3.0.1-bin-hadoop3.2 /usr/local/spark
+    wget https://apache.mirror.digionline.de/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz
+    tar xvf spark-2.4.7-bin-hadoop2.7.tgz
+    sudo mv spark-2.4.7-bin-hadoop2.7 /usr/local/spark
     ```
 2. Edit `~/.bashrc` using `vi` and add the following lines at the end of the file:
     ``` bash
     export SPARK_HOME=/usr/local/spark
     export HADOOP_HOME=/usr/local/spark
-    export PATH=$PATH:/usr/local/spark/bin
+    export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH
+    export PATH=$SPARK_HOME/bin:$SPARK_HOME/python:$PATH
     ```
 3. Activate changes:
     ``` bash
