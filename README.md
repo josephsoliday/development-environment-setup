@@ -136,3 +136,38 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
   
 **NOTE:** Please see
 [WSL VS Code Tutorial](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for more details.
+
+## IntelliJ Setup for WSL
+
+This section will outline how I setup my IntelliJ IDE to use the Windows Subsystem for Linux (WSL).
+
+1. Install [XLaunch](https://sourceforge.net/projects/vcxsrv/)
+
+2. Start XLaunch and make sure to check **Disable access control** 
+
+3. Download IntelliJ on WSL:
+    ``` bash
+    cd /usr/local
+    wget https://download.jetbrains.com/idea/ideaIU-2020.2.3.tar.gz
+    tar -zxf ideaIU-2020.2.3.tar.gz
+    mv idea-IU-202.7660.26 idea
+    ```
+
+4. Edit your .bashrc:
+    ``` bash
+    # Export VcXsrv display
+    export DISPLAY=<your IP>:0
+
+    # Create Alias for IDEA (IntelliJ)
+    alias idea="/usr/local/idea/bin/idea.sh"
+    ```
+
+5. Set the source to ~/.bashrc:
+    ``` bash
+    source ~/.bashrc
+    ```
+
+6. Launch IntelliJ:
+    ``` bash
+    idea
+    ```
