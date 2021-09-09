@@ -145,7 +145,7 @@ This section will outline how I setup my IntelliJ IDE to use the Windows Subsyst
 
 2. Create a shortcut for XLaunch to startup automatically. For example, the `Target` field should be:
     ```
-    "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl
+    "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl -ac
     ```
 
 3. Move shortcut to the `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup` folder and launch it
