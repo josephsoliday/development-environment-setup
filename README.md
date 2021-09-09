@@ -143,9 +143,14 @@ This section will outline how I setup my IntelliJ IDE to use the Windows Subsyst
 
 1. Install [XLaunch](https://sourceforge.net/projects/vcxsrv/)
 
-2. Start XLaunch and make sure to check **Disable access control** 
+2. Create a shortcut for XLaunch to startup automatically. For example, the `Target` field should be:
+    ```
+    "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl
+    ```
 
-3. Download IntelliJ on WSL:
+3. Move shortcut to the `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup` folder and launch it
+
+4. Download IntelliJ on WSL:
     ``` bash
     cd /usr/local
     wget https://download.jetbrains.com/idea/ideaIU-2020.2.3.tar.gz
@@ -153,21 +158,21 @@ This section will outline how I setup my IntelliJ IDE to use the Windows Subsyst
     mv idea-IU-202.7660.26 idea
     ```
 
-4. Edit your .bashrc:
+5. Edit your .bashrc:
     ``` bash
     # Export VcXsrv display
-    export DISPLAY=<your IP>:0
+    export DISPLAY=$(hostname -I | awk '{print $1}'):0
 
     # Create Alias for IDEA (IntelliJ)
     alias idea="/usr/local/idea/bin/idea.sh"
     ```
 
-5. Set the source to ~/.bashrc:
+6. Set the source to ~/.bashrc:
     ``` bash
     source ~/.bashrc
     ```
 
-6. Launch IntelliJ:
+7. Launch IntelliJ:
     ``` bash
     idea
     ```
