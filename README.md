@@ -121,6 +121,15 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     pip install pyspark
     ```
 
+### Kafka
+
+1. Create a docker-compose.yml with the following content: [docker-compose.yml](kafka/docker-compose.yml)
+2. Start Kafka using docker-compose:
+    ```bash
+    docker-compose up -d
+    ```
+3. Install the [Tools for Apache Kafka](https://marketplace.visualstudio.com/items?itemName=jeppeandersen.vscode-kafka) extension
+
 ### Extensions
   
 1. Install the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension in VS Code
