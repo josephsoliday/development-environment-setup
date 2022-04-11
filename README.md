@@ -123,7 +123,7 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 
 ### Kafka
 
-1. Create a docker-compose.yml with the following content: [docker-compose.yml]()
+1. Create a docker-compose.yml with the following content: [docker-compose.yml](https://github.com/josephsoliday/kafka/blob/main/docker-compose.yml)
 2. Start Kafka using docker-compose:
     ```bash
     docker-compose up -d
