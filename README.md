@@ -28,11 +28,10 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
     wsl --set-version Ubuntu 2
     ```
-5. Fix DNS resolution issues: https://gist.github.com/ThePlenkov/6ecf2a43e2b3898e8cd4986d277b5ecf
-
-   After following instructions, change the execution of the boot.sh file:
+5. Fix DNS resolution issues by running the following commands on wsl:
     ```
-    sudo chmod 777 /usr/local/bin/boot.sh
+    echo -e "[network]\ngenerateResolvConf = false\n" | sudo tee /etc/wsl.conf
+    echo -e "nameserver 8.8.8.8\n" | sudo tee /etc/resolv.conf
     ```
 7. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
 8. Remove the **export DOCKER_HOST** entry from .bashrc
