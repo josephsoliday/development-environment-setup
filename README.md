@@ -29,41 +29,38 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     wsl --set-version Ubuntu 2
     ```
 5. Fix DNS resolution issues by doing the following:
-
     * Create a file called `reset-resolvconf.sh` in your `/usr/local/bin/reset-resolvconf.sh` with the following content
-    ```
-    #!/usr/bin/env bash
-
-    # Remove existing "nameserver" lines from /etc/resolv.conf
-    sed -i '/nameserver/d' /etc/resolv.conf
-    
-    # Run the PowerShell command to generate "nameserver" lines and append to /etc/resolv.conf
-    # we use full path here to support boot command with root user
-    /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command '(Get-DnsClientServerAddress -AddressFamily IPv4).ServerAddresses | ForEach-Object { "nameserver $_" }' | tr -d '\r'| tee -a /etc/resolv.conf > /dev/null
-
-    ```
-   **NOTE:** If you need to connect to VPN often, try this approach: https://gist.github.com/ThePlenkov/6ecf2a43e2b3898e8cd4986d277b5ecf
-
-    Change the execution of the reset-resolvconf.sh file:
-    ```
-    sudo chmod 777 /usr/local/bin/reset-resolvconf.sh
-    ```
-    Create a file under /etc/sudoers.d/ to allow no password when running reset-resolvconf.sh with sudo:
-    ```
-    sudo vi /etc/sudoers.d/wsl_custom
-    ```
-    Add the No Password Rule:
-    ```
-    your_username ALL=(ALL) NOPASSWD: /usr/local/bin/reset-resolvconf.sh
-    ```
-    Add an alias to you `~/.bashrc` file:
-    ```
-    alias reset-resolvconf="sudo /usr/local/bin/reset-resolvconf.sh"
-    ```
-    Optionally, add a line to start reset-resolvconf.sh in your `~/.bashrc` to run at startup:
-    ```
-    sudo /usr/local/bin/reset-resolvconf.sh
-    ```
+      ```
+      #!/usr/bin/env bash
+  
+      # Remove existing "nameserver" lines from /etc/resolv.conf
+      sed -i '/nameserver/d' /etc/resolv.conf
+      
+      # Run the PowerShell command to generate "nameserver" lines and append to /etc/resolv.conf
+      # we use full path here to support boot command with root user
+      /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command '(Get-DnsClientServerAddress -AddressFamily IPv4).ServerAddresses | ForEach-Object { "nameserver $_" }' | tr -d '\r'| tee -a /etc/resolv.conf > /dev/null
+  
+      ```
+    * Change the execution of the reset-resolvconf.sh file:
+      ```
+      sudo chmod 777 /usr/local/bin/reset-resolvconf.sh
+      ```
+    * Create a file under /etc/sudoers.d/ to allow no password when running reset-resolvconf.sh with sudo:
+      ```
+      sudo vi /etc/sudoers.d/wsl_custom
+      ```
+    * Add the No Password Rule:
+      ```
+      your_username ALL=(ALL) NOPASSWD: /usr/local/bin/reset-resolvconf.sh
+      ```
+    * Add an alias to you `~/.bashrc` file:
+      ```
+      alias reset-resolvconf="sudo /usr/local/bin/reset-resolvconf.sh"
+      ```
+    * Optionally, add a line to start reset-resolvconf.sh in your `~/.bashrc` to run at startup:
+      ```
+      sudo /usr/local/bin/reset-resolvconf.sh
+      ```
 7. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
 8. Remove the **export DOCKER_HOST** entry from .bashrc
 9. Upgrade docker on Ubuntu:
