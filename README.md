@@ -29,7 +29,8 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     wsl --set-version Ubuntu 2
     ```
 5. Fix DNS resolution issues by doing the following:
-    Create a file called `reset-resolvconf.sh` in your `/usr/local/bin/reset-resolvconf.sh` with the following content
+
+    * Create a file called `reset-resolvconf.sh` in your `/usr/local/bin/reset-resolvconf.sh` with the following content
     ```
     #!/usr/bin/env bash
 
