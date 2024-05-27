@@ -33,6 +33,12 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     echo -e "[network]\ngenerateResolvConf = false\n" | sudo tee /etc/wsl.conf
     echo -e "nameserver 8.8.8.8\n" | sudo tee /etc/resolv.conf
     ```
+   **NOTE:** If you need to connect to VPN often, try this approach: https://gist.github.com/ThePlenkov/6ecf2a43e2b3898e8cd4986d277b5ecf
+
+   After following instructions, change the execution of the boot.sh file:
+    ```
+    sudo chmod 777 /usr/local/bin/boot.sh
+    ```
 7. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
 8. Remove the **export DOCKER_HOST** entry from .bashrc
 9. Upgrade docker on Ubuntu:
