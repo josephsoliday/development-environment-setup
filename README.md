@@ -43,13 +43,25 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
    **NOTE:** If you need to connect to VPN often, try this approach: https://gist.github.com/ThePlenkov/6ecf2a43e2b3898e8cd4986d277b5ecf
 
-   Change the execution of the reset-resolvconf.sh file:
+    Change the execution of the reset-resolvconf.sh file:
     ```
     sudo chmod 777 /usr/local/bin/reset-resolvconf.sh
+    ```
+    Create a file under /etc/sudoers.d/ to allow no password when running reset-resolvconf.sh with sudo:
+    ```
+    sudo vi /etc/sudoers.d/wsl_custom
+    ```
+    Add the No Password Rule:
+    ```
+    your_username ALL=(ALL) NOPASSWD: /usr/local/bin/reset-resolvconf.sh
     ```
     Add an alias to you `~/.bashrc` file:
     ```
     alias reset-resolvconf="sudo reset-resolvconf.sh"
+    ```
+    Optionally, add a line to start reset-resolvconf.sh in your `~/.bashrc` to run at startup:
+    ```
+    sudo /usr/local/bin/reset-resolvconf.sh
     ```
 7. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
 8. Remove the **export DOCKER_HOST** entry from .bashrc
