@@ -28,16 +28,28 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
     wsl --set-version Ubuntu 2
     ```
-5. Fix DNS resolution issues by running the following commands on wsl:
+5. Fix DNS resolution issues by doing the following:
+    Create a file called `reset-resolvconf.sh` in your `/usr/local/bin/reset-resolvconf.sh` with the following content
     ```
-    echo -e "[network]\ngenerateResolvConf = false\n" | sudo tee /etc/wsl.conf
-    echo -e "nameserver 8.8.8.8\n" | sudo tee /etc/resolv.conf
+    #!/usr/bin/env bash
+
+    # Remove existing "nameserver" lines from /etc/resolv.conf
+    sed -i '/nameserver/d' /etc/resolv.conf
+    
+    # Run the PowerShell command to generate "nameserver" lines and append to /etc/resolv.conf
+    # we use full path here to support boot command with root user
+    /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command '(Get-DnsClientServerAddress -AddressFamily IPv4).ServerAddresses | ForEach-Object { "nameserver $_" }' | tr -d '\r'| tee -a /etc/resolv.conf > /dev/null
+
     ```
    **NOTE:** If you need to connect to VPN often, try this approach: https://gist.github.com/ThePlenkov/6ecf2a43e2b3898e8cd4986d277b5ecf
 
-   After following instructions, change the execution of the boot.sh file:
+   Change the execution of the reset-resolvconf.sh file:
     ```
-    sudo chmod 777 /usr/local/bin/boot.sh
+    sudo chmod 777 /usr/local/bin/reset-resolvconf.sh
+    ```
+    Add an alias to you `~/.bashrc` file:
+    ```
+    alias reset-resolvconf="sudo reset-resolvconf.sh"
     ```
 7. Open Docker desktop, click on **Resources->WSL INTEGRATION** and enable Ubuntu
 8. Remove the **export DOCKER_HOST** entry from .bashrc
