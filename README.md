@@ -57,7 +57,7 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
     Add an alias to you `~/.bashrc` file:
     ```
-    alias reset-resolvconf="sudo reset-resolvconf.sh"
+    alias reset-resolvconf="sudo /usr/local/bin/reset-resolvconf.sh"
     ```
     Optionally, add a line to start reset-resolvconf.sh in your `~/.bashrc` to run at startup:
     ```
