@@ -111,6 +111,7 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 1. Install [Python for Windows](https://www.python.org/downloads/windows/)
 2. Install Python for Ubuntu:
     ```
+    sudo apt-get update; sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libncursesw5-dev libgdbm-dev libc6-dev libssl-dev openssl bzip2 libbz2-dev libreadline-dev libsqlite3-dev
     wget -q https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer -O- | bash
     echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
