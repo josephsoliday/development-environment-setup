@@ -109,8 +109,18 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 ### Python
 
 1. Install [Python for Windows](https://www.python.org/downloads/windows/)
-2. Install/Upgrade [Python for Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server)
-
+2. Install Python for Ubuntu:
+    ```
+    wget -q https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer -O- | bash
+    echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+    echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+    ```
+    Restart Ubuntu and run the following commands to install Python:
+    ```
+    pyenv install 3.10.0
+    pyenv global 3.10.0
+    ```
 ### Java
 
 1. Install [JDK 11 for Windows](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
