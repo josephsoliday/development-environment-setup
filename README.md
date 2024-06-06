@@ -126,6 +126,19 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
 
 1. Install [JDK 11 for Windows](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 2. Install [JDK 11 for Ubuntu](https://computingforgeeks.com/how-to-install-java-11-on-ubuntu-debian-linux/)
+3. Configure method parameters:
+   ```bash
+   # local
+   echo "org.eclipse.jdt.core.compiler.codegen.methodParameters=generate" > .settings/org.eclipse.jdt.core.pref
+   # globally
+   echo "org.eclipse.jdt.core.compiler.codegen.methodParameters=generate" > ~/.vscode-server/java.prefs
+   ```
+   Add the following to your settings.json in VS Code:
+   ```json
+   "java.settings.url": "~/.vscode-server/java.prefs"
+   ```
+   Clean your Java workspace files in VS Code and restart.
+   
 
 ### Maven
 
