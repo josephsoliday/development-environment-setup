@@ -124,8 +124,8 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
     ```
 ### Java
 
-1. Install [JDK 11 for Windows](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-2. Install [JDK 11 for Ubuntu](https://computingforgeeks.com/how-to-install-java-11-on-ubuntu-debian-linux/)
+1. Install [SDKMAN](https://sdkman.io/install/)
+2. Install latest version of Java per the instructions
 3. Configure method parameters:
    ```bash
    # local
@@ -202,33 +202,3 @@ This section will outline how I setup my Visual Studio Code IDE to use the Windo
   
 **NOTE:** Please see
 [WSL VS Code Tutorial](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) for more details.
-
-## IntelliJ Setup for WSL
-
-This section will outline how I setup my IntelliJ IDE to use the Windows Subsystem for Linux (WSL).
-
-1. Install [XLaunch](https://sourceforge.net/projects/vcxsrv/)
-
-2. Create a shortcut for XLaunch to startup automatically using the following `Target` field:
-    ```
-    "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl -ac
-    ```
-
-3. Move the shortcut to the `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup` folder and launch it
-
-4. Download IntelliJ on WSL:
-    ``` bash
-    cd /usr/local
-    wget https://download.jetbrains.com/idea/ideaIU-2020.2.3.tar.gz
-    tar -zxf ideaIU-2020.2.3.tar.gz
-    mv idea-IU-202.7660.26 idea
-    ```
-
-5. Create a desktop shortcut with the following `Target` field:
-    ```
-    %SystemRoot%\System32\bash.exe -c "cd && DISPLAY=:0 /usr/local/idea/bin/idea.sh"
-    ```
-
-6. Pin the shortcut to your taskbar and optionally change the icon
-
-7. Launch IntelliJ
